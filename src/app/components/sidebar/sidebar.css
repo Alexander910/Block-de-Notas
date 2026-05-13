@@ -1,0 +1,104 @@
+/* Contenedor principal */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: #f3f4f6;
+  border-right: 1px solid #e5e7eb;
+  padding: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.menu-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Botón nueva nota */
+.new-note {
+  width: 100%;
+  padding: 10px;
+  background: #93c5fd;
+  border: none;
+  border-radius: 10px;
+  color: #1e3a8a;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.2s;
+}
+
+.new-note:hover {
+  background: #60a5fa;
+}
+
+/* Secciones */
+.section {
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #374151;
+}
+
+.section-header a {
+  text-decoration: none;
+  color: #2563eb;
+  font-size: 0.8rem;
+}
+
+/* Nota activa */
+.note {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.note.active {
+  background: #dbeafe;
+}
+
+/* Títulos */
+.section-title {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #6b7280;
+}
+
+/* Lista */
+ul {
+  list-style: none;
+}
+
+ul li {
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul li:hover {
+  background: #e5e7eb;
+}
