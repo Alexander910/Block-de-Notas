@@ -1,97 +1,29 @@
 .editor-container {
-  width: 100%;
-  height: 100%;
-
-  background: white;
-  border-radius: 20px;
-
   display: flex;
   flex-direction: column;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-/* Header */
-.editor-header {
-  padding: 20px 25px;
-
-  border-bottom: 1px solid #e5e7eb;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Título */
-.title-input {
-  flex: 1;
-
-  border: none;
-  outline: none;
-
-  font-size: 2rem;
-  font-weight: bold;
-
-  color: #111827;
-}
-
-/* Toolbar */
-.editor-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Botones */
-.editor-actions button {
-  width: 42px;
-  height: 42px;
-
-  border: none;
-  border-radius: 12px;
-
-  background: #f3f4f6;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.editor-actions button:hover {
-  background: #dbeafe;
-}
-
-/* Guardar */
-.save-btn {
-  width: auto !important;
-  padding: 0 18px;
-
-  background: #6366f1 !important;
-  color: white;
-  font-weight: 600;
-}
-
-.save-btn:hover {
-  background: #4f46e5 !important;
-}
-
-/* Body */
-.editor-body {
-  flex: 1;
-  padding: 30px;
-}
-
-/* Área escritura */
-.editor-body textarea {
-  width: 100%;
+  background: white;
   height: 100%;
+  width: 100%;
+}
 
-  border: none;
+::ng-deep .NgxEditor__MenuBar {
+  border: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  background-color: #ffffff !important;
+  padding: 8px 16px !important;
+  display: flex;
+  gap: 8px;
+}
+
+::ng-deep .NgxEditor {
+  border: none !important;
+  flex: 1;
+  padding: 40px 60px !important;
+  font-family: 'Inter', Arial, sans-serif !important;
+  font-size: 16px;
+  overflow-y: auto;
+}
+
+::ng-deep .NgxEditor:focus-within {
   outline: none;
-  resize: none;
-
-  font-size: 1.1rem;
-  line-height: 1.9;
-
-  font-family: 'Segoe UI', sans-serif;
 }

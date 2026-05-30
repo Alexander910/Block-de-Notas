@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditorComponent } from './editor';
 
-describe('EditorComponent', () => {
-  let component: EditorComponent;
-  let fixture: ComponentFixture<EditorComponent>;
+import { Consultoria } from './consultoria';
+
+describe('Consultoria', () => {
+  let component: Consultoria;
+  let fixture: ComponentFixture<Consultoria>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditorComponent]
+      imports: [Consultoria],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EditorComponent);
+    fixture = TestBed.createComponent(Consultoria);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

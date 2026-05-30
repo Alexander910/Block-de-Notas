@@ -1,37 +1,9 @@
 <div class="editor-container">
-
-  <!-- Header -->
-  <div class="editor-header">
-
-    <input
-      type="text"
-      placeholder="Untitled Document"
-      class="title-input"
-    />
-
-    <div class="editor-actions">
-
-      <button><b>B</b></button>
-      <button><i>I</i></button>
-      <button><u>U</u></button>
-      <button>☰</button>
-      <button>🔗</button>
-
-      <button class="save-btn">
-        Guardar
-      </button>
-
-    </div>
-
-  </div>
-
-  <!-- Editor -->
-  <div class="editor-body">
-
-    <textarea
-      placeholder="Empieza a escribir tu nota..."
-    ></textarea>
-
-  </div>
-
+  <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+  
+  <ngx-editor 
+    [editor]="editor"
+    [(ngModel)]="html"
+    placeholder="Empieza a escribir..."
+  ></ngx-editor>
 </div>
