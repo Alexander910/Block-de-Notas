@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { NgxEditorModule, Editor } from 'ngx-editor';
+import { NotasService } from '../../services/notas.service';
 
 @Component({
   selector: 'app-editor',
@@ -17,7 +17,17 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   editor!: Editor;
 
-  html = '';
+
+  titulo: string = '';
+  html: string  = '';
+  notaActualId: string | null = null;
+  modoEdicion = false;
+
+
+
+   constructor(
+    private notasService: NotasService
+  ) {}
 
   ngOnInit(): void {
     this.editor = new Editor();
@@ -26,4 +36,110 @@ export class EditorComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.editor.destroy();
   }
+
+   guardarNota(): void {
+
+    const nota = {
+      titulo: this.titulo,
+      contenido: this.html,
+      fechaCreacion: new Date().toISOString(),
+      fechaActualizacion: new Date().toISOString()
+    };
+
+    if (!this.modoEdicion || !this.notaActualId) {
+
+      this.notasService
+        .crearNota(nota)
+        .subscribe({
+          next: () => {
+
+            alert('Nota guardada correctamente');
+
+            this.limpiarFormulario();
+
+          },
+          error: (error) => {
+
+            console.error(error);
+
+            alert('Error al guardar');
+
+          }
+        });
+
+      return;
+    }
+
+    this.notasService
+      .actualizarNota(this.notaActualId, nota)
+      .subscribe({
+        next: () => {
+
+          alert('Nota actualizada correctamente');
+
+        },
+        error: (error) => {
+
+          console.error(error);
+
+          alert('Error al actualizar');
+
+        }
+      });
+
+  }
+
+  cargarNota(id: string, nota: any): void {
+
+    this.notaActualId = id;
+
+    this.titulo = nota.titulo;
+    this.html = nota.contenido;
+
+    this.modoEdicion = true;
+
+  }
+
+  eliminarNota(): void {
+
+    if (!this.notaActualId) {
+      alert('No hay nota seleccionada');
+      return;
+    }
+
+    if (!confirm('¿Desea eliminar esta nota?')) {
+      return;
+    }
+
+    this.notasService
+      .eliminarNota(this.notaActualId)
+      .subscribe({
+        next: () => {
+
+          alert('Nota eliminada');
+
+          this.limpiarFormulario();
+
+        },
+        error: (error) => {
+
+          console.error(error);
+
+          alert('Error al eliminar');
+
+        }
+      });
+
+  }
+
+  limpiarFormulario(): void {
+
+    this.titulo = '';
+    this.html = '';
+
+    this.notaActualId = null;
+    this.modoEdicion = false;
+
+  }
+
 }

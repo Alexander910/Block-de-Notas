@@ -1,4 +1,22 @@
 <div class="editor-container">
+
+  <div class="editor-container">
+
+  <div class="editor-header">
+
+    <input
+      type="text"
+      class="titulo-input"
+      placeholder="Título de la nota"
+      [(ngModel)]="titulo">
+
+    <button
+      class="btn-guardar"
+      (click)="guardarNota()">
+      Guardar
+    </button>
+
+  </div>
   <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
   
   <ngx-editor 

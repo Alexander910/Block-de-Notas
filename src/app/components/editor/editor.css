@@ -27,3 +27,33 @@
 ::ng-deep .NgxEditor:focus-within {
   outline: none;
 }
+
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editor-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.titulo-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-guardar {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+ngx-editor {
+  flex: 1;
+}

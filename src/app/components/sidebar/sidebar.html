@@ -15,10 +15,33 @@
         <a href="#">View all</a>
       </div>
       <ul class="nav-list">
-        <li class="active">Untitled Document</li>
-        <li>carnet <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg></li>
-        <li>Proyecto <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg></li>
-      </ul>
+
+       @for (nota of notas; track nota.id) {
+
+    <li>
+
+      {{ nota.titulo }}
+
+      <svg
+        class="cloud-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+
+      </svg>
+
+    </li>
+
+  }
+
+</ul>
+      
     </div>
 
     <!-- Other Tools -->
