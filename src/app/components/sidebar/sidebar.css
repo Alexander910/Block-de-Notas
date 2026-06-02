@@ -1,10 +1,6 @@
 .sidebar {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: space-between;
-  overflow-y: auto;
+  background-color: var(--sidebar-bg);
+  color: var(--text-main);
 }
 
 .sidebar-content {
@@ -32,7 +28,7 @@
 }
 
 .new-note:hover {
-  background-color: #bae6fd;
+  background-color: var(--hover-bg);
 }
 
 .section {
@@ -40,9 +36,7 @@
 }
 
 .section-header, .section-title {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
+   color: var(--text-muted);
 }
 
 .section-header {
@@ -52,7 +46,7 @@
 }
 
 .section-header a {
-  color: #0284c7;
+  color: var(--primary-color);
 }
 
 .nav-list {
@@ -62,25 +56,24 @@
 }
 
 .nav-list li {
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  color: var(--text-main);
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
-  transition: background-color 0.2s;
-  justify-content: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: all .2s ease;
 }
 
 .nav-list li.active {
-  background-color: #e0f2fe;
-  color: #0284c7;
+   background-color: var(--primary-light);
+  color: var(--primary-color);
 }
 
+
 .nav-list li:hover:not(.active) {
-  background-color: var(--border-color);
+  background-color: var(--hover-bg);
 }
 
 .nav-list svg {
@@ -88,7 +81,7 @@
 }
 
 .nav-list li.active svg {
-  color: #0284c7;
+  color: var(--primary-color);
 }
 
 .cloud-icon {
@@ -104,12 +97,7 @@
 }
 
 .store-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: var(--text-main);
-  cursor: pointer;
+ color: var(--text-main);
 }
 
 .external-link {
@@ -137,3 +125,4 @@
 .footer-item svg {
   color: var(--text-muted);
 }
+

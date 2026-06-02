@@ -1,1 +1,27 @@
-<p>consultoria works!</p>
+<div class="consultoria-container">
+
+  <h2>Consultoría IA</h2>
+
+  <textarea
+    [(ngModel)]="textoOriginal"
+    placeholder="Escribe o pega tu texto">
+  </textarea>
+
+  <div class="botones">
+
+    <button (click)="parafrasear()">
+      Parafrasear
+    </button>
+
+    <button (click)="resumir()">
+      Resumir
+    </button>
+
+  </div>
+
+  <textarea
+    [value]="resultado"
+    readonly>
+  </textarea>
+
+</div>

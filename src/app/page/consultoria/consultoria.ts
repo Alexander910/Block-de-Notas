@@ -1,9 +1,30 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-consultoria',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './consultoria.html',
-  styleUrl: './consultoria.css',
+  styleUrl: './consultoria.css'
 })
-export class Consultoria {}
+export class Consultoria {
+
+  textoOriginal = '';
+  resultado = '';
+
+  parafrasear(): void {
+
+    this.resultado =
+      'Texto parafraseado: ' + this.textoOriginal;
+
+  }
+
+  resumir(): void {
+
+    this.resultado =
+      this.textoOriginal.substring(0, 100) + '...';
+
+  }
+
+}

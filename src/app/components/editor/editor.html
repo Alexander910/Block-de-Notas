@@ -1,7 +1,5 @@
 <div class="editor-container">
 
-  <div class="editor-container">
-
   <div class="editor-header">
 
     <input
@@ -10,18 +8,24 @@
       placeholder="Título de la nota"
       [(ngModel)]="titulo">
 
-    <button
-      class="btn-guardar"
-      (click)="guardarNota()">
+    <button class="btn-guardar" (click)="guardarNota()">
       Guardar
     </button>
-
   </div>
+
   <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
-  
-  <ngx-editor 
+
+  <ngx-editor
     [editor]="editor"
     [(ngModel)]="html"
     placeholder="Empieza a escribir..."
   ></ngx-editor>
+
+ <div class="meta-info" *ngIf="notaActualId">
+  <span> Creada: {{ fechaCreacion | date:'short' }}</span>
+  <span> Editada: {{ fechaEdicion | date:'short' }}</span>
+</div>
+
+
+
 </div>

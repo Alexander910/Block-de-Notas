@@ -2,13 +2,16 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgxEditorModule, Editor } from 'ngx-editor';
 import { NotasService } from '../../services/notas.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-editor',
   standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
-    NgxEditorModule
+    NgxEditorModule,
+    
   ],
   templateUrl: './editor.html',
   styleUrl: './editor.css'
@@ -22,6 +25,8 @@ export class EditorComponent implements OnInit, OnDestroy {
   html: string  = '';
   notaActualId: string | null = null;
   modoEdicion = false;
+  fechaCreacion: string = '';
+  fechaEdicion: string = '';
 
 
 
@@ -31,6 +36,26 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.editor = new Editor();
+
+  this.notasService.notaSeleccionada$
+    .subscribe(nota => {
+      
+
+      if (!nota){
+        this.limpiarFormulario();
+       return;
+      }
+
+        this.notaActualId = nota.id;
+      this.titulo = nota.titulo ?? '';
+      this.html = nota.contenido ?? '';
+      this.fechaCreacion = nota.fechaCreacion;
+      this.fechaEdicion = nota.fechaActualizacion;
+
+      this.modoEdicion = true;
+
+
+    });
   }
 
   ngOnDestroy(): void {
@@ -40,22 +65,28 @@ export class EditorComponent implements OnInit, OnDestroy {
    guardarNota(): void {
 
     const nota = {
-      titulo: this.titulo,
-      contenido: this.html,
-      fechaCreacion: new Date().toISOString(),
-      fechaActualizacion: new Date().toISOString()
+        titulo: this.titulo,
+        contenido: this.html,
+        fechaCreacion: this.fechaCreacion || new Date().toISOString(),
+        fechaActualizacion: new Date().toISOString()
     };
 
     if (!this.modoEdicion || !this.notaActualId) {
 
-      this.notasService
-        .crearNota(nota)
-        .subscribe({
+      this.notasService.crearNota(nota).subscribe({
           next: () => {
 
             alert('Nota guardada correctamente');
 
             this.limpiarFormulario();
+            
+             this.notasService.obtenerNotas().subscribe((data: any) => {
+              const notas = data
+               ? Object.keys(data).map(id => ({ id, ...data[id] }))
+              : [];
+
+              this.notasService.refrescarNotas();
+             });
 
           },
           error: (error) => {
@@ -140,6 +171,13 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.notaActualId = null;
     this.modoEdicion = false;
 
+  }
+
+  nuevaNota(): void {
+  this.titulo = '';
+  this.html = '';
+  this.notaActualId = null;
+  this.modoEdicion = false;
   }
 
 }

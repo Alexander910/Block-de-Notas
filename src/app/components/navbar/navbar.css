@@ -1,11 +1,13 @@
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  height: 100%;
-  background: var(--navbar-bg);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  align-items: center;
+  height: 60px;
+  padding: 0 16px;
+
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-main);
 }
 
 .nav-left, .nav-right {
@@ -39,8 +41,7 @@
 .logo-text {
   font-size: 14px;
   font-weight: 600;
-  color: #0f172a;
-  line-height: 1.1;
+  color: var(--text-main);
 }
 
 .title-input-container {
@@ -48,14 +49,15 @@
 }
 
 .title-input {
+  padding: 6px 10px;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
-  background: var(--navbar-bg);
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 14px;
+
+  background: var(--bg);
   color: var(--text-main);
+
   outline: none;
-  width: 250px;
+  width: 200px;
 }
 
 .title-input:focus {
@@ -63,13 +65,14 @@
 }
 
 .search-box {
-  display: flex;
+ display: flex;
   align-items: center;
-  background-color: #f3f4f6;
-  border-radius: 20px;
-  padding: 6px 12px;
   gap: 8px;
-  width: 200px;
+
+  padding: 6px 10px;
+  border-radius: 20px;
+
+  background: var(--surface);
 }
 
 .search-box input {
@@ -90,15 +93,45 @@
 }
 
 .user-avatar {
-  background-color: #e0f2fe;
-  color: #0284c7;
-  font-weight: 600;
-  font-size: 12px;
-  width: 32px;
+ width: 32px;
   height: 32px;
-  border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+.theme-btn svg {
+  transition: all 0.3s ease;
+}
+
+.dark-mode .theme-btn svg {
+  fill: #facc15 !important;
+  stroke: #facc15 !important;
+  filter: drop-shadow(0 0 8px #facc15);
+}
+
+.dark-mode .theme-btn {
+  color: #facc15;
+}
+
+.icon-btn svg {
+  transition: all .3s ease;
+}
+
+
+.theme-btn {
+  color: #64748b;
+}
+
+body.dark-mode .theme-btn {
+  color: #facc15;
+}
+
+body.dark-mode .theme-btn svg {
+  fill: currentColor;
+  stroke: currentColor;
 }

@@ -1,18 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+
   --sidebar-bg: #f8f9fa;
   --navbar-bg: #ffffff;
   --border-color: #eaedf1;
+
   --text-main: #333333;
   --text-muted: #6b7280;
+
   --primary-color: #4facfe;
   --primary-light: #e0f2fe;
   --hover-bg: #f1f5f9;
 }
 
+.dark-mode {
+  --bg: #0f172a;
+  --surface: #111827;
+
+  --sidebar-bg: #0f172a;
+  --navbar-bg: #111827;
+  --border-color: #1f2937;
+
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+
+  --primary-color: #38bdf8;
+  --primary-light: #0b2a3a;
+  --hover-bg: #1e293b;
+}
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +41,7 @@
 }
 
 body {
-  background-color: var(--navbar-bg);
+  background-color: var(--bg);
   color: var(--text-main);
   height: 100vh;
   overflow: hidden;
