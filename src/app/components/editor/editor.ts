@@ -38,12 +38,16 @@ export class EditorComponent implements OnInit, OnDestroy {
   modoEdicion = false;
   fechaCreacion: string = '';
   fechaEdicion: string = '';
-
-
+  fontSize: string = '16px';
 
    constructor(
     private notasService: NotasService
   ) {}
+
+  cambiarFuente(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    this.fontSize = select.value;
+  }
 
   ngOnInit(): void {
     this.editor = new Editor({ schema });

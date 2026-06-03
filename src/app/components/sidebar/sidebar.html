@@ -14,7 +14,12 @@
         <span>Notas</span>
         <a href="#" (click)="toggleMostrarNotas($event)">{{ mostrarTodasLasNotas ? 'Ver menos' : 'Ver todo' }}</a>
       </div>
-      <ul class="nav-list">
+      @if (loading) {
+        <div class="spinner">
+          Cargando...
+        </div>
+      } @else {
+        <ul class="nav-list">
 
        @for (nota of notasFiltradas; track nota.id) {
 
@@ -36,8 +41,8 @@
 
   }
 
-</ul>
-      
+      </ul>
+      }
     </div>
 
     <!-- Otras opciones -->

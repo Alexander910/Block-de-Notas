@@ -63,6 +63,7 @@ export class SidebarComponent implements OnInit {
   
   
 
+  loading = true;
   notaSeleccionada: any = null;
 
   constructor(
@@ -86,7 +87,7 @@ export class SidebarComponent implements OnInit {
   }
 
   cargarNotas(): void {
-
+    this.loading = true;
     this.notasService
       .obtenerNotas()
       .subscribe({
@@ -94,17 +95,17 @@ export class SidebarComponent implements OnInit {
 
           if (!data) {
             this.notas = [];
-            return;
+          } else {
+            this.notas = Object.keys(data).map(id => ({
+              id,
+              ...data[id]
+            }));
           }
-
-          this.notas = Object.keys(data).map(id => ({
-            id,
-            ...data[id]
-          }));
-
+          this.loading = false;
         },
         error: (error) => {
           console.error(error);
+          this.loading = false;
         }
       });
 
