@@ -28,6 +28,14 @@ app-sidebar {
   background-color: var(--sidebar-bg);
   display: flex;
   flex-direction: column;
+  transition: width 0.3s ease, min-width 0.3s ease;
+  overflow: hidden;
+}
+
+app-sidebar.collapsed {
+  width: 0;
+  min-width: 0;
+  border-right: none;
 }
 
 .main-content {
@@ -36,5 +44,5 @@ app-sidebar {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: var(--bg);
 }

@@ -31,17 +31,28 @@ export class SidebarComponent implements OnInit {
     this.newNote.emit();
   }
 
-  get notasFiltradas(): any[] {
+  mostrarTodasLasNotas = false;
 
-  if (!this.searchText || this.searchText.trim() === '') {
-    return this.notas;
+  toggleMostrarNotas(event: Event): void {
+    event.preventDefault();
+    this.mostrarTodasLasNotas = !this.mostrarTodasLasNotas;
   }
 
-  const texto = this.searchText.toLowerCase();
+  get notasFiltradas(): any[] {
+    let filtradas = this.notas;
 
-  return this.notas.filter(n =>
-    (n.titulo || '').toLowerCase().includes(texto)
-  );
+    if (this.searchText && this.searchText.trim() !== '') {
+      const texto = this.searchText.toLowerCase();
+      filtradas = this.notas.filter(n =>
+        (n.titulo || '').toLowerCase().includes(texto)
+      );
+    }
+
+    if (!this.mostrarTodasLasNotas) {
+      return filtradas.slice(0, 4);
+    }
+
+    return filtradas;
   }
 
   

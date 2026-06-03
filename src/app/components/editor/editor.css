@@ -35,14 +35,31 @@
   color: white;
 }
 
-/* TOOLBAR (ngx-editor) */
-::ng-deep .NgxEditor__MenuBar {
-  border: none !important;
-  border-bottom: 1px solid var(--border-color) !important;
-  background-color: var(--surface) !important;
-  padding: 8px 16px !important;
+/* TOOLBAR ROW - combined single line */
+.toolbar-row {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px 10px;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Make ngx-editor menu items flow inline with custom toolbar */
+::ng-deep .toolbar-row ngx-editor-menu {
+  display: contents;
+}
+
+::ng-deep .toolbar-row .NgxEditor__MenuBar {
+  display: contents !important;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+::ng-deep .toolbar-row .NgxEditor__Seperator {
+  height: 22px;
 }
 
 /* ÁREA DE ESCRITURA */

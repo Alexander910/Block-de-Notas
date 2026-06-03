@@ -1,6 +1,7 @@
 .sidebar {
   background-color: var(--sidebar-bg);
   color: var(--text-main);
+  overflow-y: auto;
 }
 
 .sidebar-content {
@@ -22,7 +23,7 @@
   border: none;
   border-radius: 8px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px; /* made smaller */
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -36,7 +37,12 @@
 }
 
 .section-header, .section-title {
-   color: var(--text-muted);
+  color: var(--text-muted);
+  font-size: 12px; /* made smaller */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
 .section-header {
@@ -47,6 +53,9 @@
 
 .section-header a {
   color: var(--primary-color);
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
 }
 
 .nav-list {
@@ -59,11 +68,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
   color: var(--text-main);
+  font-size: 13px; /* made smaller */
   transition: all .2s ease;
+}
+
+.nav-list li.untitled {
+  opacity: 0.6;
+  font-style: italic;
 }
 
 .nav-list li.active {
@@ -88,41 +103,3 @@
   margin-left: auto;
   opacity: 0.5;
 }
-
-.store-links {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.store-item {
- color: var(--text-main);
-}
-
-.external-link {
-  margin-left: auto;
-  color: var(--text-muted);
-}
-
-.sidebar-footer {
-  padding: 16px;
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--text-main);
-  cursor: pointer;
-}
-
-.footer-item svg {
-  color: var(--text-muted);
-}
-

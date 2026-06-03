@@ -1,0 +1,237 @@
+/* Host element flows inline with parent flex */
+:host {
+  display: contents;
+}
+
+.custom-toolbar {
+  display: contents;
+}
+
+/* ── Dropdown ── */
+.toolbar-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--text-main, #e0e0e0);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 30px;
+  transition: background 0.12s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: var(--hover-bg, rgba(255,255,255,0.08));
+}
+
+.icon-chevron {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+}
+
+.toggle-label {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 170px;
+  max-height: 280px;
+  overflow-y: auto;
+  background-color: var(--surface, #1e1e2e);
+  border: 1px solid var(--border-color, #444);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+  z-index: 200;
+  padding: 4px;
+}
+
+.dropdown-item {
+  padding: 7px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--text-main, #e0e0e0);
+  font-size: 13px;
+  transition: background 0.1s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--hover-bg, rgba(255,255,255,0.08));
+}
+
+/* Heading preview sizes */
+.heading-h1 { font-size: 22px; font-weight: 700; }
+.heading-h2 { font-size: 18px; font-weight: 700; }
+.heading-h3 { font-size: 16px; font-weight: 600; }
+.heading-h4 { font-size: 14px; font-weight: 600; }
+.heading-h5 { font-size: 13px; font-weight: 600; }
+.heading-h6 { font-size: 12px; font-weight: 600; }
+
+/* ── Align items with icon + label ── */
+.align-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.align-item svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ── Separator ── */
+.toolbar-sep {
+  width: 1px;
+  height: 22px;
+  background-color: var(--border-color, #444);
+  margin: 0 2px;
+  flex-shrink: 0;
+}
+
+/* ── Color toggle button ── */
+.color-toggle {
+  padding: 4px 6px !important;
+  flex-direction: column;
+  gap: 1px !important;
+}
+
+.color-letter {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.bg-letter {
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: #000;
+  font-size: 13px;
+}
+
+.color-indicator {
+  width: 18px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+/* ── HSL Color Picker popup ── */
+.color-picker-popup {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background-color: var(--surface, #1e1e2e);
+  border: 1px solid var(--border-color, #444);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 300;
+  padding: 12px;
+}
+
+/* Saturation-Value square */
+.sv-square {
+  width: 100%;
+  height: 150px;
+  border-radius: 6px;
+  position: relative;
+  cursor: crosshair;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.sv-white {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+  border-radius: 6px;
+}
+
+.sv-black {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, #000000);
+  border-radius: 6px;
+}
+
+/* Hue bar */
+.hue-bar {
+  width: 100%;
+  height: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background: linear-gradient(to right,
+    #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000
+  );
+}
+
+/* Preview row */
+.color-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-preview-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+.color-hex {
+  font-size: 12px;
+  color: var(--text-muted, #888);
+  font-family: monospace;
+  flex: 1;
+}
+
+.color-apply-btn {
+  padding: 5px 14px;
+  background: var(--primary-color, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+
+.color-apply-btn:hover {
+  filter: brightness(1.15);
+}
+
+/* ── Image upload icon button ── */
+.toolbar-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--text-main, #e0e0e0);
+  cursor: pointer;
+  transition: background 0.12s ease;
+  flex-shrink: 0;
+}
+
+.toolbar-icon-btn:hover {
+  background-color: var(--hover-bg, rgba(255,255,255,0.08));
+}

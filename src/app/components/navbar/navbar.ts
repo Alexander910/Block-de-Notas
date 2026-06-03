@@ -11,9 +11,10 @@ import { FormsModule } from '@angular/forms';
 
 export class NavbarComponent {
 
-   titulo: string = '';
+
   searchText: string = '';
   @Output() searchChange = new EventEmitter<string>();
+  @Output() sidebarToggle = new EventEmitter<void>();
   
   onSearchChange(): void {
      console.log('SEARCH:', this.searchText);
@@ -21,7 +22,7 @@ export class NavbarComponent {
   }
 
   toggleSidebar(): void {
-    console.log('toggle sidebar');
+    this.sidebarToggle.emit();
   }
 
  toggleDarkMode(): void {

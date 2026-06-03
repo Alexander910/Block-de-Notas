@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgxEditorModule, Editor } from 'ngx-editor';
+import { NgxEditorModule, Editor, Toolbar } from 'ngx-editor';
 import { NotasService } from '../../services/notas.service';
 import { CommonModule } from '@angular/common';
+import { schema } from './schema';
+import { EditorToolbarComponent } from '../editor-toolbar/editor-toolbar';
 
 @Component({
   selector: 'app-editor',
@@ -11,7 +13,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     NgxEditorModule,
-    
+    EditorToolbarComponent,
   ],
   templateUrl: './editor.html',
   styleUrl: './editor.css'
@@ -19,6 +21,15 @@ import { CommonModule } from '@angular/common';
 export class EditorComponent implements OnInit, OnDestroy {
 
   editor!: Editor;
+
+  toolbar: Toolbar = [
+    ['undo', 'redo'],
+    ['bold', 'italic', 'underline', 'strike'],
+    ['code', 'blockquote'],
+    ['ordered_list', 'bullet_list'],
+    ['link'],
+    ['format_clear']
+  ];
 
 
   titulo: string = '';
@@ -35,7 +46,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.editor = new Editor();
+    this.editor = new Editor({ schema });
 
   this.notasService.notaSeleccionada$
     .subscribe(nota => {

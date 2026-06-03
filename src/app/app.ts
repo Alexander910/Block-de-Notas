@@ -16,6 +16,7 @@ export class App {
   @ViewChild(EditorComponent) editor!: EditorComponent;
 
   searchText: string = '';
+  isSidebarOpen: boolean = true;
 
   ngAfterViewInit(): void {
     console.log('editor listo'); 
@@ -32,5 +33,9 @@ export class App {
     if (this.editor) {
       this.editor.nuevaNota();
     }
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

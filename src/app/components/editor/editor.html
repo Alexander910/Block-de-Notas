@@ -13,7 +13,10 @@
     </button>
   </div>
 
-  <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+  <div class="toolbar-row">
+    <app-editor-toolbar [editor]="editor"></app-editor-toolbar>
+    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+  </div>
 
   <ngx-editor
     [editor]="editor"
