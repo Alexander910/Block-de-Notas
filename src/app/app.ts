@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 import { SidebarComponent } from './components/sidebar/sidebar';
 import { EditorComponent } from './components/editor/editor';
+import { PapeleraComponent } from './components/papelera/papelera';
 
 
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent, SidebarComponent, EditorComponent],
+  imports: [NavbarComponent, SidebarComponent, EditorComponent, PapeleraComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -17,6 +18,7 @@ export class App {
 
   searchText: string = '';
   isSidebarOpen: boolean = true;
+  mostrarPapelera: boolean = false;
 
   ngAfterViewInit(): void {
     console.log('editor listo'); 
@@ -30,6 +32,8 @@ export class App {
   onNewNote(): void {
     console.log(' Nueva nota desde sidebar');
 
+    this.mostrarPapelera = false;
+
     if (this.editor) {
       this.editor.nuevaNota();
     }
@@ -38,4 +42,13 @@ export class App {
   toggleSidebar(): void {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+
+  abrirPapelera(): void {
+    this.mostrarPapelera = true;
+  }
+
+  cerrarPapelera(): void {
+    this.mostrarPapelera = false;
+  }
 }
+

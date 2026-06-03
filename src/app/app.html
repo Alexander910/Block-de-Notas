@@ -4,10 +4,14 @@
 
   <div class="main-body">
 
-    <app-sidebar [searchText]="searchText" (newNote)="onNewNote()" [class.collapsed]="!isSidebarOpen"></app-sidebar>
+    <app-sidebar [searchText]="searchText" (newNote)="onNewNote()" (openPapelera)="abrirPapelera()" [class.collapsed]="!isSidebarOpen"></app-sidebar>
 
     <div class="main-content">
-      <app-editor></app-editor>
+      @if (mostrarPapelera) {
+        <app-papelera (cerrar)="cerrarPapelera()"></app-papelera>
+      } @else {
+        <app-editor></app-editor>
+      }
     </div>
 
   </div>

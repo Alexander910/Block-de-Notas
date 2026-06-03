@@ -35,6 +35,26 @@
   color: white;
 }
 
+/* BOTÓN ELIMINAR */
+.btn-eliminar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ef4444;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-eliminar:hover {
+  background: #dc2626;
+}
+
 /* TOOLBAR ROW - combined single line */
 .toolbar-row {
   display: flex;

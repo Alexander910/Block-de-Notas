@@ -149,16 +149,23 @@ export class EditorComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (!confirm('¿Desea eliminar esta nota?')) {
+    if (!confirm('¿Desea mover esta nota a la papelera?')) {
       return;
     }
 
+    const nota = {
+      titulo: this.titulo,
+      contenido: this.html,
+      fechaCreacion: this.fechaCreacion || new Date().toISOString(),
+      fechaActualizacion: this.fechaEdicion || new Date().toISOString()
+    };
+
     this.notasService
-      .eliminarNota(this.notaActualId)
+      .moverAPapelera(this.notaActualId, nota)
       .subscribe({
         next: () => {
 
-          alert('Nota eliminada');
+          alert('Nota movida a la papelera');
 
           this.limpiarFormulario();
 
@@ -167,7 +174,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
           console.error(error);
 
-          alert('Error al eliminar');
+          alert('Error al mover a papelera');
 
         }
       });
