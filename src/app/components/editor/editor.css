@@ -143,3 +143,12 @@
   background: transparent !important;
   color: var(--text-main) !important;
 }
+
+/* IMÁGENES DENTRO DEL EDITOR */
+::ng-deep .NgxEditor__Content img {
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 10px 0;
+}
